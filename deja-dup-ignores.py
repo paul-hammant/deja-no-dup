@@ -49,7 +49,7 @@ def find_ignorable_folders_within(dirpath):
         return
     listdir = []
     try:
-        listdir = os.listdir(dirpath)
+        listdir = [entry.name for entry in os.scandir(dirpath) if entry.is_dir(follow_symlinks=False)]
     except PermissionError:
         pass
     for dirname in listdir:
