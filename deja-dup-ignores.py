@@ -101,7 +101,7 @@ if __name__ == "__main__":
     home_dir = os.path.expanduser("~")
 
     #We are going to recreate and of `git_backup_ignore_explanations` in subfolders, if needed
-    for dirpath, _, filenames in os.walk(home_dir):
+    for dirpath, _, filenames in os.walk(home_dir, followlinks=False):
         for filename in filenames:
             if filename == 'git_backup_ignore_explanations.txt' or filename == '.deja-dup-ignore':
                     os.remove(os.path.join(dirpath, filename))
@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
     find_ignorable_folders_within(home_dir)
 
-    for dirpath, _, filenames in os.walk(home_dir):
+    for dirpath, _, filenames in os.walk(home_dir, followlinks=False):
         for filename in filenames:
             if filename == 'git_backup_ignore_explanations.txt':
                 print("git_backup_ignore_explanations.txt in " + dirpath)
