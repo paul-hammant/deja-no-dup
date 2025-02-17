@@ -24,4 +24,10 @@ can be gotten again by `npm install` and alike. This script attempts to
 do that. You would run it for you home directory before using Duplicity (which uses deja-dup). A faster 
 backup is the goal.
 
+If you're using Restic instead to backup, tack the following on to the backup sub-command:
+
+```
+--exclude-if-present=.deja-dup-ignore
+```
+
 Oh, and you might want to put `.deja-dup-ignore` in your global `~/.gitignore` file
